@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vital Forms - Exploring the Deep Biochemical Logic of Living Systems</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #2c3e2d;
+            --primary-green: #4a6741;
+            --accent-ochre: #b8956a;
+            --accent-mineral: #7a8471;
+            --neutral-light: #f8f7f4;
+            --neutral-mid: #e8e6e0;
+            --neutral-dark: #3a3a3a;
+            --text-primary: #2c2c2c;
+            --text-secondary: #5a5a5a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--neutral-light);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(248, 247, 244, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--neutral-mid);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-green);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-family: 'Crimson Text', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary-green);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Geometric Visualization */
+        .hero-visual {
+            position: relative;
+            height: 500px;
+        }
+
+        .cellular-lattice {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.6;
+        }
+
+        .lattice-node {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--accent-ochre);
+            border-radius: 50%;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .lattice-connection {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, var(--accent-mineral), transparent);
+            transform-origin: left center;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.2); }
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .section-title {
+            font-family: 'Crimson Text', serif;
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 2rem;
+        }
+
+        .about-text {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Research Areas */
+        .research {
+            padding: 6rem 0;
+            background: var(--neutral-light);
+        }
+
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .research-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-ochre);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .research-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .research-card h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .research-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Vector Field Background */
+        .vector-field {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .vector-arrow {
+            position: absolute;
+            width: 20px;
+            height: 2px;
+            background: var(--primary-green);
+            transform-origin: left center;
+        }
+
+        .vector-arrow::after {
+            content: '';
+            position: absolute;
+            right: -4px;
+            top: -2px;
+            width: 0;
+            height: 0;
+            border-left: 6px solid var(--primary-green);
+            border-top: 3px solid transparent;
+            border-bottom: 3px solid transparent;
+        }
+
+        /* Publications */
+        .publications {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .publication-item {
+            border-bottom: 1px solid var(--neutral-mid);
+            padding: 2rem 0;
+            transition: background 0.3s ease;
+        }
+
+        .publication-item:hover {
+            background: var(--neutral-light);
+            margin: 0 -2rem;
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .publication-title {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-meta {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .publication-abstract {
+            font-family: 'Crimson Text', serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--accent-ochre);
+        }
+
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Vital Forms</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Exploring the Deep Biochemical Logic of Living Systems</h1>
+                    <p>An intellectual project investigating the fundamental patterns, feedback loops, and emergent properties that govern biological complexity—from cellular networks to systemic behaviors.</p>
+                    <a href="#research" class="cta-button">Explore Research</a>
+                </div>
+                <div class="hero-visual">
+                    <div class="cellular-lattice" id="lattice"></div>
+                </div>
+            </div>
+        </div>
+        <div class="vector-field" id="vectorField"></div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div>
+                    <h2 class="section-title">About Vital Forms</h2>
+                </div>
+                <div class="about-text">
+                    <p>Vital Forms represents a convergence of biochemistry, systems theory, and pattern recognition—an investigation into the organizing principles that transform molecular interactions into the coherent phenomena we recognize as life.</p>
+                    
+                    <p>Our work examines how cellular networks exhibit emergent behaviors, how feedback mechanisms create stability within dynamic systems, and how the geometry of biological structures reflects deeper computational processes occurring at the molecular level.</p>
+                    
+                    <p>Through rigorous analysis and innovative modeling approaches, we seek to illuminate the elegant logic underlying biological complexity, revealing the mathematical beauty inherent in living systems while maintaining scientific precision and empirical grounding.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Areas -->
+    <section class="research" id="research">
+        <div class="container">
+            <h2 class="section-title">Research Areas</h2>
+            <div class="research-grid">
+                <div class="research-card">
+                    <h3>Cellular Network Dynamics</h3>
+                    <p>Investigating how molecular interactions give rise to emergent cellular behaviors through network topology analysis and dynamic modeling of biochemical pathways.</p>
+                </div>
+                <div class="research-card">
+                    <h3>Feedback Loop Architecture</h3>
+                    <p>Examining the role of positive and negative feedback mechanisms in maintaining homeostasis and enabling adaptive responses in biological systems.</p>
+                </div>
+                <div class="research-card">
+                    <h3>Pattern Formation & Morphogenesis</h3>
+                    <p>Exploring how geometric patterns emerge from biochemical processes, from protein folding to tissue organization and developmental biology.</p>
+                </div>
+                <div class="research-card">
+                    <h3>Systems Integration</h3>
+                    <p>Understanding how individual cellular components integrate into coherent, functional systems that exhibit properties beyond their constituent parts.</p>
+                </div>
+                <div class="research-card">
+                    <h3>Computational Biology</h3>
+                    <p>Developing mathematical models and computational frameworks to simulate and predict biological behaviors across multiple scales of organization.</p>
+                </div>
+                <div class="research-card">
+                    <h3>Evolutionary Dynamics</h3>
+                    <p>Analyzing how biochemical logic shapes evolutionary processes and how natural selection operates on molecular networks and system architectures.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications -->
+    <section class="publications" id="publications">
+        <div class="container">
+            <h2 class="section-title">Recent Publications</h2>
+            
+            <div class="publication-item">
+                <div class="publication-title">Network Topology and Emergent Dynamics in Cellular Signaling Cascades</div>
+                <div class="publication-meta">Journal of Theoretical Biology • 2024</div>
+                <div class="publication-abstract">
+                    This study examines how the topological structure of cellular signaling networks influences emergent dynamic behaviors, revealing fundamental principles governing information processing in biological systems.
+                </div>
+            </div>
+
+            <div class="publication-item">
+                <div class="publication-title">Geometric Constraints in Protein Folding: A Systems Perspective</div>
+                <div class="publication-meta">Biophysical Journal • 2024</div>
+                <div class="publication-abstract">
+                    We investigate how geometric constraints at the molecular level propagate through hierarchical scales to influence protein structure and function, offering new insights into folding dynamics.
+                </div>
+            </div>
+
+            <div class="publication-item">
+                <div class="publication-title">Feedback Mechanisms in Metabolic Networks: Stability and Adaptation</div>
+                <div class="publication-meta">Nature Systems Biology • 2023</div>
+                <div class="publication-abstract">
+                    An analysis of how feedback loops in metabolic networks enable both stability and adaptive flexibility, demonstrating the elegant balance between robustness and responsiveness in living systems.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>For inquiries about research collaborations or publications, please reach out through our institutional channels.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <a href="#">Research Database</a><br>
+                    <a href="#">Methodology Papers</a><br>
+                    <a href="#">Computational Tools</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <a href="#">Academic Network</a><br>
+                    <a href="#">Conference Presentations</a><br>
+                    <a href="#">Collaborative Projects</a>
+                </div>
+            </div>
+            <p>&copy; 2024 Vital Forms. Advancing the understanding of biological complexity.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Generate cellular lattice visualization
+        function createCellularLattice() {
+            const lattice = document.getElementById('lattice');
+            const nodes = 25;
+            
+            for (let i = 0; i < nodes; i++) {
+                const node = document.createElement('div');
+                node.className = 'lattice-node';
+                
+                const x = Math.random() * 90;
+                const y = Math.random() * 90;
+                
+                node.style.left = x + '%';
+                node.style.top = y + '%';
+                node.style.animationDelay = Math.random() * 3 + 's';
+                
+                lattice.appendChild(node);
+                
+                // Create connections between nearby nodes
+                if (i > 0 && Math.random() > 0.6) {
+                    const connection = document.createElement('div');
+                    connection.className = 'lattice-connection';
+                    
+                    const prevNode = lattice.children[Math.floor(Math.random() * i)];
+                    const prevX = parseFloat(prevNode.style.left);
+                    const prevY = parseFloat(prevNode.style.top);
+                    
+                    const distance = Math.sqrt(Math.pow(x - prevX, 2) + Math.pow(y - prevY, 2));
+                    const angle = Math.atan2(y - prevY, x - prevX) * 180 / Math.PI;
+                    
+                    connection.style.left = prevX + '%';
+                    connection.style.top = prevY + '%';
+                    connection.style.width = distance + '%';
+                    connection.style.transform = `rotate(${angle}deg)`;
+                    
+                    lattice.appendChild(connection);
+                }
+            }
+        }
+
+        // Generate vector field background
+        function createVectorField() {
+            const vectorField = document.getElementById('vectorField');
+            const arrows = 30;
+            
+            for (let i = 0; i < arrows; i++) {
+                const arrow = document.createElement('div');
+                arrow.className = 'vector-arrow';
+                
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const angle = Math.random() * 360;
+                
+                arrow.style.left = x + '%';
+                arrow.style.top = y + '%';
+                arrow.style.transform = `rotate(${angle}deg)`;
+                
+                vectorField.appendChild(arrow);
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize visualizations
+        document.addEventListener('DOMContentLoaded', function() {
+            createCellularLattice();
+            createVectorField();
+        });
+
+        // Add scroll-based animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.research-card, .publication-item');
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9777a538906f765a',t:'MTc1NjU5MjExMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
